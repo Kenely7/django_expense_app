@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from.models import Expense,Category
 from .serializers import ExpenseSerializer,CategorySerializer
 from rest_framework.decorators import api_view
@@ -20,3 +20,21 @@ def list_expense(request):
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data, status.HTTP_201_CREATED)
+    
+
+
+@api_view(['GET','DELETE'])
+def detail_expense(request,pk):
+    expense = get_object_or_404(Expense,id=pk)
+    if request.method =="GET":
+        serializer = ExpenseSerializer(expense)
+        return Response(serializer.data)
+    elif request.method == "DELETE":
+        expense.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+    
+@api_view(['GET'])
+def list_categories(request):
+    categories = Category.objects.all()
+    serializer = CategorySerializer(categories,many = True)
+    return Response(serializer.data)

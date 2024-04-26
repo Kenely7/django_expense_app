@@ -12,7 +12,7 @@ class CategorySerializer(serializers.ModelSerializer):
 
 class ExpenseSerializer(serializers.ModelSerializer):
     category = CategorySerializer(read_only = True)
-    category_id = serializers.IntegerField
+    category_id = serializers.IntegerField()
 
     class Meta:
         model = Expense
