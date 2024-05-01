@@ -7,3 +7,9 @@ urlpatterns = [
     path("expenses/<int:pk>/",views.detail_expense),
     path("categories/", views.list_categories),
 ]
+
+# endpoints
+
+# expense = http://127.0.0.1:8002/expenses
+# categories = http://127.0.0.1:8002/categories
+# del_expenses = http://127.0.0.1:8002/expenses/id/
