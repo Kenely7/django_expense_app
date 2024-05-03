@@ -10,6 +10,6 @@ urlpatterns = [
 
 # endpoints
 
-# expense = http://127.0.0.1:8002/expenses
-# categories = http://127.0.0.1:8002/categories
-# del_expenses = http://127.0.0.1:8002/expenses/id/
+# expense = http://127.0.0.1:8001/expenses
+# categories = http://127.0.0.1:8001/categories
+# del_expenses = http://127.0.0.1:8001/expenses/id/git
